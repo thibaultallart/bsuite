@@ -18,8 +18,9 @@
 
 import abc
 import dm_env
-
-Action = int  # Only discrete-action agents for now.
+from typing import List, Union
+Action = Union[int, List[int]]  # Only discrete-action
+                                # or list of discrete action agents for now.
 
 
 class Agent(abc.ABC):
