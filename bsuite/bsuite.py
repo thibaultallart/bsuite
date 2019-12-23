@@ -19,6 +19,7 @@
 
 from bsuite import sweep
 from bsuite.experiments.bandit import bandit
+from bsuite.experiments.bandit_list import bandit_list
 from bsuite.experiments.bandit_noise import bandit_noise
 from bsuite.experiments.bandit_scale import bandit_scale
 from bsuite.experiments.cartpole import cartpole
@@ -56,6 +57,7 @@ from typing import Any, Mapping, Text, Tuple
 # each experiment's sweep.py file.
 EXPERIMENT_NAME_TO_ENVIRONMENT = dict(
     bandit=bandit.SimpleBandit,
+    bandit_list=bandit_list.ListBandit,
     bandit_noise=bandit_noise.load,
     bandit_scale=bandit_scale.load,
     cartpole=cartpole.Cartpole,
