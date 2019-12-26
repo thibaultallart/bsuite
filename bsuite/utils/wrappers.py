@@ -255,6 +255,7 @@ class RewardNoise(dm_env.Environment):
     Args:
       env: An environment whose rewards to perturb.
       noise_scale: Standard deviation of gaussian noise on rewards.
+      bernoulli: Set true to draw Bernoulli rewards instead of Gaussian.
       seed: Optional seed for numpy's random number generator (RNG).
     """
     super(RewardNoise, self).__init__()
