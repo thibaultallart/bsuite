@@ -26,11 +26,10 @@ from bsuite.experiments.bandit import sweep
 from bsuite.utils import wrappers
 
 
-def load(noise_scale, seed):
+def load(mean_rewards=None, seed=None):
   """Load a bandit_noise experiment with the prescribed settings."""
   env = wrappers.RewardNoise(
-      env=bandit.SimpleBandit(seed=seed),
-      noise_scale=noise_scale,
+      env=bandit.SimpleBandit(rewards=mean_rewards, seed=seed),
       bernoulli=True,
       seed=seed)
   env.bsuite_num_episodes = sweep.NUM_EPISODES
