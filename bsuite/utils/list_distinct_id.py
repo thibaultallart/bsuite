@@ -61,3 +61,8 @@ class ListDistinctId: #Space):
 
     def get_length(self):
         return self.length
+
+    # dm_env
+    def generate_value(self):
+        """Generate a test value which conforms to this spec."""
+        return self.sample()
