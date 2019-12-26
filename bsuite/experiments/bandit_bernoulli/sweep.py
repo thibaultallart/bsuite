@@ -23,6 +23,6 @@ NUM_EPISODES = bandit_sweep.NUM_EPISODES
 
 _settings = []
 for seed in range(4):
-  _settings.append({'noise_scale': 1, 'seed': seed})
+  _settings.append({'seed': seed})
 
 SETTINGS = tuple(_settings)
