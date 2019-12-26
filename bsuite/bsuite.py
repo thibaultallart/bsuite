@@ -41,6 +41,7 @@ from bsuite.experiments.mnist_scale import mnist_scale
 from bsuite.experiments.mountain_car import mountain_car
 from bsuite.experiments.mountain_car_noise import mountain_car_noise
 from bsuite.experiments.mountain_car_scale import mountain_car_scale
+from bsuite.experiments.position_based_model import position_based_model
 from bsuite.experiments.umbrella_distract import umbrella_distract
 from bsuite.experiments.umbrella_length import umbrella_length
 
@@ -80,6 +81,7 @@ EXPERIMENT_NAME_TO_ENVIRONMENT = dict(
     mountain_car=mountain_car.MountainCar,
     mountain_car_noise=mountain_car_noise.load,
     mountain_car_scale=mountain_car_scale.load,
+    position_based_model=position_based_model.PositionBasedModel,
     umbrella_distract=umbrella_distract.load,
     umbrella_length=umbrella_length.UmbrellaChain,
 )

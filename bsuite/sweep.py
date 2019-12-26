@@ -55,6 +55,7 @@ from bsuite.experiments.mnist_scale import sweep as mnist_scale_sweep
 from bsuite.experiments.mountain_car import sweep as mountain_car_sweep
 from bsuite.experiments.mountain_car_noise import sweep as mountain_car_noise_sweep
 from bsuite.experiments.mountain_car_scale import sweep as mountain_car_scale_sweep
+from bsuite.experiments.position_based_model import sweep as position_based_model_sweep
 from bsuite.experiments.umbrella_distract import sweep as umbrella_distract_sweep
 from bsuite.experiments.umbrella_length import sweep as umbrella_length_sweep
 
@@ -102,6 +103,7 @@ MNIST_SCALE = _parse_sweep(mnist_scale_sweep)
 MOUNTAIN_CAR = _parse_sweep(mountain_car_sweep)
 MOUNTAIN_CAR_NOISE = _parse_sweep(mountain_car_noise_sweep)
 MOUNTAIN_CAR_SCALE = _parse_sweep(mountain_car_scale_sweep)
+POSITION_BASED_MODEL = _parse_sweep(position_based_model_sweep)
 UMBRELLA_DISTRACT = _parse_sweep(umbrella_distract_sweep)
 UMBRELLA_LENGTH = _parse_sweep(umbrella_length_sweep)
 
