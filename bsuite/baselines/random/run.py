@@ -23,7 +23,7 @@ from bsuite import bsuite
 from bsuite import sweep
 
 from bsuite.baselines import experiment
-from bsuite.baselines.random import random
+from bsuite.baselines.random import random2
 from bsuite.baselines.utils import pool
 
 # bsuite logging
@@ -52,9 +52,9 @@ def run(bsuite_id: str) -> str:
       logging_mode=FLAGS.logging_mode,
       overwrite=FLAGS.overwrite,
   )
-  agent = random.default_agent(obs_spec=env.observation_spec(),
-                               action_spec=env.action_spec(),
-                               seed=FLAGS.seed)
+  agent = random2.default_agent(obs_spec=env.observation_spec(),
+                                action_spec=env.action_spec(),
+                                seed=FLAGS.seed)
 
   experiment.run(
       agent=agent,
