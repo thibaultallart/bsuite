@@ -248,6 +248,7 @@ class RewardNoise(dm_env.Environment):
   def __init__(self,
                env: dm_env.Environment,
                noise_scale: float,
+               bernoulli: bool=False,
                seed: int = None):
     """Builds the Reward Noise environment wrapper.
 
@@ -259,6 +260,7 @@ class RewardNoise(dm_env.Environment):
     super(RewardNoise, self).__init__()
     self._env = env
     self._noise_scale = noise_scale
+    self._bernoulli = bernoulli
     self._rng = np.random.RandomState(seed)
 
   def reset(self):
@@ -270,7 +272,11 @@ class RewardNoise(dm_env.Environment):
   def _add_reward_noise(self, timestep: dm_env.TimeStep):
     if timestep.first():
       return timestep
-    reward = timestep.reward + self._noise_scale * self._rng.randn()
+    if self._bernoulli:
+      reward = self._rng.binomial(p=timestep.reward,
+                                  n=1, size=1)[0]
+    else:
+      reward = timestep.reward + self._noise_scale * self._rng.randn()
     return dm_env.TimeStep(
         step_type=timestep.step_type,
         reward=reward,
