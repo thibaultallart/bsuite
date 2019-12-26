@@ -35,6 +35,7 @@ sweep.EXPERIMENT_NAME. For example, sweep.DISCOUNTING_CHAIN.
 from bsuite.experiments.bandit import sweep as bandit_sweep
 from bsuite.experiments.bandit_list import sweep as bandit_list_sweep
 from bsuite.experiments.bandit_noise import sweep as bandit_noise_sweep
+from bsuite.experiments.bandit_bernoulli import sweep as bandit_bernoulli_sweep
 from bsuite.experiments.bandit_scale import sweep as bandit_scale_sweep
 from bsuite.experiments.cartpole import sweep as cartpole_sweep
 from bsuite.experiments.cartpole_noise import sweep as cartpole_noise_sweep
@@ -81,6 +82,7 @@ def _parse_sweep(package) -> Tuple[Text]:
 BANDIT = _parse_sweep(bandit_sweep)
 BANDIT_LIST = _parse_sweep(bandit_list_sweep)
 BANDIT_NOISE = _parse_sweep(bandit_noise_sweep)
+BANDIT_BERNOULLI = _parse_sweep(bandit_bernoulli_sweep)
 BANDIT_SCALE = _parse_sweep(bandit_scale_sweep)
 CARTPOLE = _parse_sweep(cartpole_sweep)
 CARTPOLE_NOISE = _parse_sweep(cartpole_noise_sweep)

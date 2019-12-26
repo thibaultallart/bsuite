@@ -21,6 +21,7 @@ from bsuite import sweep
 from bsuite.experiments.bandit import bandit
 from bsuite.experiments.bandit_list import bandit_list
 from bsuite.experiments.bandit_noise import bandit_noise
+from bsuite.experiments.bandit_bernoulli import bandit_bernoulli
 from bsuite.experiments.bandit_scale import bandit_scale
 from bsuite.experiments.cartpole import cartpole
 from bsuite.experiments.cartpole_noise import cartpole_noise
@@ -59,6 +60,7 @@ EXPERIMENT_NAME_TO_ENVIRONMENT = dict(
     bandit=bandit.SimpleBandit,
     bandit_list=bandit_list.ListBandit,
     bandit_noise=bandit_noise.load,
+    bandit_bernoulli=bandit_bernoulli.load,
     bandit_scale=bandit_scale.load,
     cartpole=cartpole.Cartpole,
     cartpole_noise=cartpole_noise.load,
