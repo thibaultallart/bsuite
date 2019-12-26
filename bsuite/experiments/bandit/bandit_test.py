@@ -27,10 +27,23 @@ import numpy as np
 class InterfaceTest(test_utils.EnvironmentTestMixin, absltest.TestCase):
 
   def make_object_under_test(self):
-    return bandit.SimpleBandit(5)
+    return bandit.SimpleBandit(seed=5)
 
   def make_action_sequence(self):
     valid_actions = range(11)
+    rng = np.random.RandomState(42)
+
+    for _ in range(100):
+      yield rng.choice(valid_actions)
+
+
+class ParametrizeTest(test_utils.EnvironmentTestMixin, absltest.TestCase):
+
+  def make_object_under_test(self):
+    return bandit.SimpleBandit(rewards=[0.1, 0.3, 0.7], seed=5)
+
+  def make_action_sequence(self):
+    valid_actions = range(3)
     rng = np.random.RandomState(42)
 
     for _ in range(100):
