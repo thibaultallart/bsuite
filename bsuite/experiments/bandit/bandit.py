@@ -31,22 +31,27 @@ import numpy as np
 class SimpleBandit(auto_reset_environment.Base):
   """SimpleBandit environment."""
 
-  def __init__(self, seed=None):
+  def __init__(self, rewards=None, seed=None):
     """Builds a simple bandit environment.
 
     Args:
+      rewards: list or np.array of rewards.
       seed: Optional integer. Seed for numpy's random number generator (RNG).
     """
     super(SimpleBandit, self).__init__()
     self._rng = np.random.RandomState(seed)
 
-    self._n_actions = 11
-    action_mask = self._rng.choice(
-        range(self._n_actions), size=self._n_actions, replace=False)
-    self._rewards = np.linspace(0, 1, self._n_actions)[action_mask]
+    if rewards is None:
+      self._n_actions = 11
+      action_mask = self._rng.choice(
+          range(self._n_actions), size=self._n_actions, replace=False)
+      self._rewards = np.linspace(0, 1, self._n_actions)[action_mask]
+    else:
+      self._n_actions = len(rewards)
+      self._rewards = rewards
 
-    self._total_regret = 0.
-    self._optimal_return = 1.
+    self._total_regret = np.min(self._rewards)
+    self._optimal_return = np.max(self._rewards)
     self.bsuite_num_episodes = sweep.NUM_EPISODES
 
   def _get_observation(self):
